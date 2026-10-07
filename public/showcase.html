@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BHAROSA — Bharat Hub for Records, Online Security &amp; Authentication | Government of India</title>
+<meta name="description" content="BHAROSA is a sovereign multi-sector platform for issuing, storing, sharing and instantly verifying trusted digital credentials. National Sovereign Trust Layer.">
+<meta name="theme-color" content="#050B18">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23050B18' stroke='%2335D3F0' stroke-width='4'/><path d='M30 52l14 14 26-28' stroke='%233DDC97' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---------- Sovereign Cyber Design Tokens ---------- */
+:root{
+  --bg:#F8FAFC;
+  --bg-2:#FFFFFF;
+  --panel:rgba(255,255,255,.94);
+  --panel-solid:#FFFFFF;
+  --panel-elevated:#F1F5F9;
+  --ink:#0F172A;
+  --muted:#475569;
+  --faint:#64748B;
+  --line:rgba(0,40,117,.12);
+  --line-strong:rgba(0,40,117,.26);
+  --grid:rgba(0,40,117,.04);
+  --blue:#002875;
+  --cyan:#0284C7;
+  --green:#0D6838;
+  --amber:#EA580C;
+  --red:#DC2626;
+  --gold:#D97706;
+  --chakra:#002875;
+  --kesari:#FF671F;
+  --display:'Sora',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gutter:clamp(20px,4vw,48px);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(82px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:250;background:var(--cyan);color:#04101F;padding:8px 14px;border-radius:8px;font-weight:700;font-family:var(--display);box-shadow:0 0 20px var(--cyan);transition:top .2s}
+.skip:focus{top:calc(12px + env(safe-area-inset-top,0px))}
+.container{width:min(1200px,100% - 2*var(--gutter));margin-inline:auto}
+main{position:relative;z-index:1}
+section{position:relative}
+.sec{padding:clamp(88px,12vw,154px) 0}
+.sec + .sec::before,.sec-edge::before{content:"";position:absolute;top:0;left:var(--gutter);right:var(--gutter);height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+h2.title{font:700 clamp(1.95rem,4.2vw,3.25rem)/1.12 var(--display);letter-spacing:-.025em;max-width:24ch}
+.title-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;font:600 .76rem var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);background:rgba(53,211,240,.09);border:1px solid rgba(53,211,240,.3);margin-bottom:14px}
+.title-badge i{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.lede{color:var(--muted);max-width:62ch;margin-top:16px;font-size:1.06rem;line-height:1.7}
+.head{margin-bottom:clamp(40px,6vw,68px)}
+.mono{font-family:var(--mono)}
+
+/* ---------- Ambient Background Layers ---------- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-grid{position:absolute;inset:-15% 0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 35%,#000 25%,transparent 82%);mask-image:radial-gradient(ellipse 85% 75% at 50% 35%,#000 25%,transparent 82%);will-change:transform}
+.bg-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.18;will-change:transform}
+.bg-glow.a{width:58vw;height:58vw;left:-16vw;top:-10vw;background:radial-gradient(circle,var(--blue),transparent 70%)}
+.bg-glow.b{width:46vw;height:46vw;right:-12vw;top:32vh;background:radial-gradient(circle,var(--green),transparent 70%);opacity:.12}
+.bg-glow.c{width:40vw;height:40vw;left:30vw;bottom:-10vh;background:radial-gradient(circle,var(--cyan),transparent 75%);opacity:.08}
+
+/* ---------- Scroll Progress & Navigation ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:3.5px;z-index:150;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--cyan),var(--green),var(--amber));box-shadow:0 0 12px var(--cyan);transition:transform .08s linear}
+.nav{position:fixed;top:0;left:0;right:0;z-index:120;padding:calc(16px + env(safe-area-inset-top,0px)) 0 16px;transition:background .3s,backdrop-filter .3s,border-color .3s,padding .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(5,11,24,.75);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border-color:var(--line);padding-top:calc(10px + env(safe-area-inset-top,0px));padding-bottom:10px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:12px;font:700 1.15rem var(--display);letter-spacing:.05em}
+.logo-symbol{position:relative;width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,rgba(53,211,240,.18),rgba(76,141,255,.1));border:1px solid var(--line-strong)}
+.logo-text{display:flex;flex-direction:column}
+.logo-text b{font:800 1.15rem/1 var(--display);letter-spacing:.07em;background:linear-gradient(120deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-text small{font:500 .62rem var(--mono);color:var(--cyan);letter-spacing:.12em;text-transform:uppercase}
+.navlinks{display:flex;align-items:center;gap:5px;background:rgba(8,19,38,.45);border:1px solid var(--line);padding:4px 8px;border-radius:999px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.navlinks a{display:block;padding:8px 14px;border-radius:999px;font:500 .88rem var(--display);color:var(--muted);transition:color .2s,background .2s,box-shadow .2s}
+.navlinks a:hover{color:var(--ink);background:rgba(76,141,255,.12)}
+.navlinks a[aria-current="true"]{color:#fff;background:linear-gradient(135deg,rgba(76,141,255,.28),rgba(53,211,240,.22));border:1px solid rgba(53,211,240,.35);box-shadow:0 0 14px rgba(53,211,240,.25)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--panel);cursor:pointer;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;content:""}
+.burger span::before{position:absolute;top:-6px}.burger span::after{position:absolute;top:6px}
+
+/* ---------- Magnetic & Glow Buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;border-radius:999px;border:1px solid var(--line-strong);font:600 .92rem var(--display);cursor:pointer;background:transparent;color:var(--ink);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s,border-color .3s;transform:translate(var(--mx,0),var(--my,0));white-space:nowrap}
+.btn::before{content:"";position:absolute;inset:-14px;border-radius:999px}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(53,211,240,.12),0 0 24px rgba(53,211,240,.35)}
+.btn.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));border-color:transparent;color:#04101F;font-weight:700}
+.btn.primary:hover{box-shadow:0 10px 40px -8px rgba(53,211,240,.6),0 0 20px rgba(76,141,255,.4);transform:translate(var(--mx,0),calc(var(--my,0) - 2px))}
+.btn.gold{background:linear-gradient(135deg,var(--amber),#D97706);border-color:transparent;color:#04101F;font-weight:700}
+.btn.gold:hover{box-shadow:0 10px 40px -8px rgba(242,163,58,.55);transform:translate(var(--mx,0),calc(var(--my,0) - 2px))}
+.btn.sm{padding:9px 18px;font-size:.84rem;border-color:rgba(61,220,151,.5);color:var(--green);font-weight:600}
+.btn.sm:hover{border-color:var(--green);box-shadow:0 0 0 4px rgba(61,220,151,.15),0 0 20px rgba(61,220,151,.3)}
+.btn.portal{padding:9px 18px;font-size:.84rem;background:linear-gradient(135deg,rgba(76,141,255,.2),rgba(53,211,240,.2));border-color:rgba(53,211,240,.4);color:var(--cyan)}
+.btn.portal:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(53,211,240,.35)}
+.btn[disabled]{opacity:.6;cursor:progress}
+
+/* ---------- Scroll Reveal Animations ---------- */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms);will-change:opacity,transform}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ---------- Hero Section ---------- */
+.hero{min-height:100svh;display:grid;align-items:center;padding:clamp(115px,16vh,160px) 0 74px;overflow:hidden;position:relative}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.85;pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:center}
+.sovereign-tag{display:inline-flex;align-items:center;gap:10px;padding:6px 16px;border-radius:999px;background:rgba(8,20,44,.75);border:1px solid rgba(53,211,240,.3);font:600 .78rem var(--mono);color:var(--cyan);letter-spacing:.08em;margin-bottom:20px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 20px rgba(53,211,240,.1)}
+.sovereign-tag svg{color:var(--gold)}
+.brand{font:800 clamp(3.2rem,8.4vw,7.4rem)/.94 var(--display);letter-spacing:-.04em}
+.brand span{display:inline-block;animation:rise .95s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*70ms + 150ms);background:linear-gradient(180deg,#FFFFFF 10%,#C8DCFF 55%,#7CA7F5 95%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+@keyframes rise{from{opacity:0;transform:translateY(.65em);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+.hero .sub{font:500 clamp(1.1rem,2vw,1.45rem)/1.35 var(--display);color:var(--ink);margin-top:22px;max-width:32ch}
+.hero .desc{color:var(--muted);margin-top:18px;max-width:54ch;font-size:1.06rem;line-height:1.7}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;align-items:center}
+.chainline{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:42px;font:600 .82rem var(--display);color:var(--muted);letter-spacing:.04em}
+.chainline b{color:var(--cyan);font-weight:600;font-size:1.05rem}
+
+/* ---------- 3D Holographic Credential & Rail ---------- */
+.hero-visual{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px,2.6vw,32px);align-items:center}
+.rail{position:relative;display:flex;flex-direction:column;padding-left:6px}
+.rail::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:1.5px;background:linear-gradient(var(--line-strong),var(--line))}
+.rail::after{content:"";position:absolute;left:8px;top:10px;width:7.5px;height:7.5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px 2px var(--cyan);animation:travel 5.2s ease-in-out infinite}
+@keyframes travel{0%{top:10px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 17px);opacity:0}}
+.rail li{position:relative;padding:12px 0 12px 28px;font:700 .68rem/1.3 var(--display);letter-spacing:.08em;color:var(--muted);max-width:136px}
+.rail li::before{content:"";position:absolute;left:3px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line-strong);transition:border-color .3s,background .3s}
+.rail li:last-child{color:var(--green)}
+.rail li:last-child::before{border-color:var(--green);background:var(--green);box-shadow:0 0 10px var(--green)}
+.credwrap{animation:float 7s ease-in-out infinite;perspective:1000px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.cred{position:relative;overflow:hidden;border-radius:24px;padding:clamp(20px,2.6vw,30px);background:linear-gradient(160deg,rgba(26,48,90,.78),rgba(9,19,40,.85));border:1px solid var(--line-strong);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 40px 95px -35px rgba(53,211,240,.4),inset 0 1px 0 rgba(255,255,255,.1);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .22s ease-out;cursor:default}
+.cred::after{content:"";position:absolute;left:0;right:0;top:-80px;height:90px;background:linear-gradient(transparent,rgba(53,211,240,.2),transparent);animation:scan 5.5s linear infinite;pointer-events:none}
+@keyframes scan{to{top:120%}}
+.cred-seal-wm{position:absolute;right:-20px;bottom:-20px;width:170px;height:170px;opacity:.06;pointer-events:none}
+.cred-top{display:flex;align-items:center;justify-content:space-between;color:var(--green);font:700 .78rem var(--display);letter-spacing:.12em}
+.cred-top-brand{display:flex;align-items:center;gap:9px}
+.cred-top svg{flex:none}
+.cred h3{font:700 1.55rem/1.2 var(--display);margin:16px 0 4px;letter-spacing:-.01em;color:#fff}
+.cred .cid{font:.82rem var(--mono);color:var(--cyan);font-weight:500}
+.cred dl{margin:20px 0;display:grid;gap:0}
+.cred dl div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:.9rem}
+.cred dt{color:var(--muted)}
+.cred dd{font-weight:600;text-align:right}
+.cred dd.hash{font:.76rem var(--mono);color:var(--cyan);word-break:break-all}
+.cred-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;border-top:1px dashed var(--line)}
+.cred-foot .qr{width:66px;height:66px;color:var(--ink);padding:6px;border-radius:10px;background:rgba(255,255,255,.09);border:1px solid var(--line-strong);transition:transform .2s}
+.cred-foot .qr:hover{transform:scale(1.05)}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;border-radius:999px;font:700 .72rem var(--display);letter-spacing:.08em;border:1px solid}
+.chip i{width:6.5px;height:6.5px;border-radius:50%;background:currentColor;display:block}
+.chip.ok{color:var(--green);border-color:rgba(61,220,151,.5);background:rgba(61,220,151,.12);box-shadow:0 0 14px rgba(61,220,151,.25)}
+.chip.warn{color:var(--amber);border-color:rgba(242,163,58,.5);background:rgba(242,163,58,.12)}
+.chip.info{color:var(--cyan);border-color:rgba(53,211,240,.5);background:rgba(53,211,240,.12)}
+
+/* ---------- Problem Section ---------- */
+.cards4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.pcard{position:relative;overflow:hidden;padding:28px 24px 30px;border:1px solid var(--line);border-radius:20px;background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+.pcard::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),transparent);transition:width .5s ease}
+.pcard:hover{transform:translateY(-8px);border-color:var(--line-strong);box-shadow:0 26px 60px -28px rgba(53,211,240,.45)}
+.pcard:hover::after{width:100%}
+.pcard .n{font:600 .82rem var(--mono);color:var(--cyan);letter-spacing:.05em}
+.pcard svg{display:block;margin:22px 0 16px;color:var(--blue);transition:transform .3s,color .3s}
+.pcard:hover svg{color:var(--cyan);transform:scale(1.1)}
+.pcard h3{font:700 1.22rem var(--display);margin-bottom:10px;color:#fff}
+.pcard p{color:var(--muted);font-size:.96rem;line-height:1.6}
+.marquee{overflow:hidden;border-block:1px solid var(--line);margin-top:clamp(60px,8vw,96px);padding:24px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);background:rgba(8,18,36,.3)}
+.marquee-track{display:flex;width:max-content;animation:marq 42s linear infinite}
+.marquee-track p{display:flex;white-space:nowrap;font:700 clamp(1.3rem,3.2vw,2.3rem) var(--display);letter-spacing:-.01em;padding-right:2.5rem;color:var(--ink)}
+.marquee-track b{font-weight:300;color:var(--cyan);padding:0 1.2rem}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- Solution Architecture ---------- */
+.arch{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1.3fr) 56px minmax(0,1fr);align-items:stretch}
+.acol{padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:border-color .3s,opacity .3s,box-shadow .3s}
+.arch:hover .acol:not(:hover){opacity:.65}
+.acol:hover{border-color:var(--line-strong);box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.acol h3{font:700 .98rem var(--display);letter-spacing:.08em;margin-bottom:20px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.acol h4{font:700 .8rem var(--display);color:var(--cyan);letter-spacing:.06em;margin:22px 0 10px;text-transform:uppercase}
+.acol ul.plain li{padding:9px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.94rem}
+.acol ul.plain li:first-child{border-top:0;padding-top:0}
+.fn{display:flex;flex-wrap:wrap;gap:8px}
+.fn span{padding:6px 14px;border-radius:999px;border:1px solid var(--line-strong);font:600 .82rem var(--display);background:rgba(53,211,240,.06);color:var(--ink)}
+.acol.engine{border-color:var(--line-strong);background:linear-gradient(170deg,rgba(24,46,86,.7),rgba(10,20,40,.75));box-shadow:0 30px 80px -40px rgba(53,211,240,.5)}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod{display:flex;align-items:center;gap:11px;padding:15px;border-radius:16px;border:1px solid var(--line);background:rgba(5,11,24,.55);font-size:.92rem;font-weight:600;position:relative;transition:border-color .25s,background .25s}
+.mod:hover{border-color:var(--cyan);background:rgba(53,211,240,.1)}
+.mod svg{color:var(--cyan);flex:none}
+.mod::after{content:"";position:absolute;right:12px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.8s ease-in-out infinite;animation-delay:calc(var(--i)*.45s)}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1;box-shadow:0 0 12px var(--green)}}
+.triad{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center;font:700 .88rem var(--display)}
+.triad span{padding:7px 16px;border-radius:999px;background:rgba(61,220,151,.12);border:1px solid rgba(61,220,151,.4);color:var(--green)}
+.triad b{color:var(--faint);font-weight:400}
+.alink{position:relative;align-self:center;height:2px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+.alink::after{content:"";position:absolute;top:-4px;left:0;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px 2px var(--cyan);animation:flow 2.6s ease-in-out infinite}
+.alink.rev::after{animation-direction:reverse;animation-delay:-1.3s}
+@keyframes flow{from{left:0;opacity:0}15%,85%{opacity:1}to{left:calc(100% - 10px);opacity:0}}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(52px,7vw,84px);border-top:1px solid var(--line)}
+.fact{padding:32px 24px 0 0}
+.fact+.fact{padding-left:28px;border-left:1px solid var(--line)}
+.fact strong{display:block;font:800 clamp(2.6rem,5vw,3.8rem)/1 var(--display);letter-spacing:-.03em;color:#fff}
+.fact span{display:block;margin-top:10px;color:var(--muted);font-size:.95rem;max-width:22ch;line-height:1.5}
+
+/* ---------- Trust Engine (Sticky Interactive SVG) ---------- */
+.engine-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,68px);align-items:start}
+.engine-stage-col{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+.stage{position:relative;width:100%;max-width:540px;aspect-ratio:1;margin-inline:auto}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ln{stroke:var(--line-strong);stroke-width:1.2;vector-effect:non-scaling-stroke;transition:stroke .35s,stroke-width .35s,opacity .35s;opacity:.5}
+.ln.on{stroke:var(--cyan);stroke-width:2.2;opacity:1;stroke-dasharray:4 4;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-16}}
+.ring{fill:none;stroke:var(--line);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:2 4}
+.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:33%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(53,211,240,.22),rgba(8,19,38,.92) 70%);border:1.5px solid var(--line-strong);box-shadow:0 0 70px -10px rgba(53,211,240,.45);z-index:2}
+.hub b{display:block;font:800 clamp(.85rem,1.9vw,1.15rem) var(--display);letter-spacing:.08em;color:#fff}
+.hub small{display:block;color:var(--cyan);font-size:clamp(.62rem,1.3vw,.78rem);font-family:var(--mono)}
+.node{position:absolute;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:8px;width:104px;background:none;border:0;cursor:pointer;color:var(--muted);text-align:center;font:600 clamp(.7rem,1.6vw,.84rem)/1.25 var(--display);padding:0;z-index:3;transition:color .3s}
+.node .dot{display:grid;place-items:center;width:clamp(46px,9vw,60px);aspect-ratio:1;border-radius:50%;background:var(--panel-solid);border:1.5px solid var(--line-strong);transition:border-color .3s,box-shadow .3s,color .3s,transform .3s;color:var(--muted)}
+.node:hover .dot,.node.on .dot{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 0 6px rgba(53,211,240,.12),0 0 36px rgba(53,211,240,.45);transform:scale(1.12)}
+.node.on{color:var(--ink)}
+.readout{margin-top:24px;padding:22px 26px;border:1px solid var(--line-strong);border-radius:20px;background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);min-height:120px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.readout h3{font:700 1.15rem var(--display);color:var(--cyan);margin-bottom:8px}
+.readout p{color:var(--ink);line-height:1.6}
+.readout.swap{animation:swap .45s ease}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}}
+.estep{min-height:60vh;display:flex;align-items:center}
+.estep:first-child{min-height:48vh}
+.estep-card{width:100%;padding:10px 0 10px 28px;border-left:2.5px solid var(--line);opacity:.35;transition:opacity .4s,border-color .4s;cursor:pointer}
+.estep.on .estep-card{opacity:1;border-color:var(--cyan)}
+.estep-card h3{font:700 1.55rem var(--display);margin-bottom:10px;letter-spacing:-.01em;color:#fff}
+.estep-card p{color:var(--ink);max-width:42ch;font-size:1.02rem;line-height:1.65}
+.estep-card .where{color:var(--muted);margin-top:12px;font-size:.95rem}
+
+/* ---------- How It Works Timeline ---------- */
+.tl{position:relative;max-width:960px;margin:0 auto}
+.tl-line{position:absolute;left:50%;top:0;bottom:0;width:2.5px;margin-left:-1.25px;background:var(--line)}
+.tl-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(var(--blue),var(--cyan));box-shadow:0 0 16px var(--cyan)}
+.tl-step{position:relative;display:grid;grid-template-columns:1fr 76px 1fr;align-items:center;min-height:30vh;padding:18px 0}
+.tl-node{grid-column:2;justify-self:center;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line-strong);font:700 .9rem var(--mono);color:var(--muted);transition:all .4s;position:relative;z-index:1}
+.tl-card{grid-column:1;grid-row:1;text-align:right;padding:24px 28px;border:1px solid var(--line);border-radius:20px;background:var(--panel);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);opacity:.45;transition:opacity .4s,border-color .4s,box-shadow .4s,transform .4s}
+.tl-step:nth-child(odd) .tl-node{grid-row:1}
+.tl-step:nth-child(even) .tl-card{grid-column:3;text-align:left}
+.tl-card h3{font:700 1.35rem var(--display);margin-bottom:8px;color:#fff}
+.tl-card p{color:var(--muted);font-size:1rem;line-height:1.6}
+.tl-step.done .tl-node{border-color:var(--blue);color:var(--ink);box-shadow:0 0 14px rgba(76,141,255,.3)}
+.tl-step.done .tl-card{opacity:.85}
+.tl-step.active .tl-node{background:var(--cyan);border-color:var(--cyan);color:#04101F;box-shadow:0 0 0 8px rgba(53,211,240,.18),0 0 44px rgba(53,211,240,.7)}
+.tl-step.active .tl-card{opacity:1;border-color:var(--cyan);box-shadow:0 24px 64px -30px rgba(53,211,240,.6);transform:scale(1.02)}
+
+/* ---------- Credential Lifecycle Ribbon ---------- */
+.lc-scroll{overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
+.lc-track{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));min-width:700px}
+.lc-line{position:absolute;left:10%;right:10%;top:24px;height:2.5px;background:var(--line)}
+.lc-fill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.lc-node{position:relative;display:grid;justify-items:center;gap:14px;background:none;border:0;cursor:pointer;padding:0 6px;color:var(--muted);font:700 .92rem var(--display)}
+.lc-node i{display:block;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line-strong);background:var(--bg);position:relative;transition:all .4s}
+.lc-node i::after{content:"";position:absolute;inset:15px;border-radius:50%;background:var(--c,var(--blue));opacity:.5;transition:all .4s}
+.lc-node.passed i{border-color:var(--c)}
+.lc-node.on{color:var(--ink)}
+.lc-node.on i{border-color:var(--c);box-shadow:0 0 0 8px color-mix(in srgb,var(--c) 18%,transparent),0 0 38px color-mix(in srgb,var(--c) 60%,transparent);transform:scale(1.08)}
+.lc-node.on i::after{inset:11px;opacity:1}
+.lc-detail{margin-top:34px;padding:28px 32px;border:1px solid var(--line-strong);border-radius:22px;background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:grid;grid-template-columns:auto 1fr;gap:8px 24px;align-items:center;box-shadow:0 20px 50px -25px rgba(0,0,0,.6)}
+.lc-detail h3{font:700 1.45rem var(--display);color:#fff}
+.lc-detail p{color:var(--ink);max-width:64ch;grid-column:2;font-size:1.02rem;line-height:1.65}
+.lc-detail .chip{grid-row:1;justify-self:start}
+.lc-detail.swap{animation:swap .45s ease}
+.statement{margin-top:38px;font:400 clamp(1.15rem,2.2vw,1.6rem)/1.4 var(--display);max-width:38ch;color:var(--muted)}
+
+/* ---------- Verification Simulator ---------- */
+.vpanel{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,4vw,52px);padding:clamp(26px,3.8vw,46px);border-radius:28px;border:1px solid var(--line-strong);background:linear-gradient(160deg,rgba(22,42,80,.6),rgba(8,18,36,.65));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 40px 110px -45px rgba(53,211,240,.45)}
+.demo-flag{display:inline-flex;align-items:center;gap:9px;margin-bottom:24px;padding:7px 16px;border-radius:999px;background:rgba(242,163,58,.12);border:1px solid rgba(242,163,58,.45);color:var(--amber);font-size:.84rem;font-weight:600}
+.field{display:grid;gap:8px;margin-bottom:20px}
+.field label{font:700 .88rem var(--display);color:var(--ink)}
+.field input{width:100%;padding:14px 18px;border-radius:14px;border:1px solid var(--line-strong);background:rgba(5,11,24,.65);font:.92rem var(--mono);color:#fff;transition:border-color .25s,box-shadow .25s}
+.field input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(53,211,240,.18)}
+.field input::placeholder{color:var(--faint)}
+.vbtns{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:10px}
+.linkbtn{background:none;border:0;color:var(--cyan);cursor:pointer;font:600 .9rem var(--display);padding:8px 4px;text-decoration:underline;text-underline-offset:4px}
+.linkbtn:hover{color:#fff}
+.scan{display:grid;justify-items:center;align-content:center;gap:16px;text-align:center}
+.scanbox{position:relative;width:min(250px,100%);aspect-ratio:1;padding:24px;border-radius:22px;background:rgba(5,11,24,.6);border:1.5px solid var(--line-strong);cursor:pointer;color:var(--ink);transition:box-shadow .3s,transform .25s}
+.scanbox:hover{box-shadow:0 0 60px -10px rgba(53,211,240,.55);transform:scale(1.02)}
+.scanbox svg{display:block;width:100%;height:100%}
+.scanbox .cr{position:absolute;width:28px;height:28px;border:2.5px solid var(--cyan)}
+.cr.tl1{left:8px;top:8px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.cr.tr1{right:8px;top:8px;border-left:0;border-bottom:0;border-top-right-radius:10px}
+.cr.bl1{left:8px;bottom:8px;border-right:0;border-top:0;border-bottom-left-radius:10px}
+.cr.br1{right:8px;bottom:8px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+.scanbox::after{content:"";position:absolute;left:14px;right:14px;top:14px;height:2.5px;background:var(--cyan);box-shadow:0 0 18px 4px rgba(53,211,240,.75);animation:sweep 3s ease-in-out infinite}
+@keyframes sweep{50%{top:calc(100% - 17px)}}
+.scan p{color:var(--muted);font-size:.9rem;max-width:26ch}
+.vout{grid-column:1/-1;min-height:20px}
+.vsteps{display:grid;gap:12px;padding:24px 0 6px;border-top:1px solid var(--line)}
+.vsteps li{display:flex;align-items:center;gap:14px;color:var(--faint);font-size:.96rem;font-weight:500;transition:color .3s}
+.vsteps li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--line-strong);flex:none}
+.vsteps li.run{color:var(--ink)}
+.vsteps li.run::before{border-color:var(--cyan) transparent var(--cyan) var(--cyan);animation:spin .7s linear infinite}
+.vsteps li.ok{color:var(--ink)}
+.vsteps li.ok::before{background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.6' fill='none' stroke='%23041' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat;border-color:var(--green);box-shadow:0 0 10px var(--green)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vresult{display:grid;grid-template-columns:auto 1fr;gap:24px;padding:28px;border:1.5px solid rgba(61,220,151,.55);border-radius:22px;background:linear-gradient(160deg,rgba(61,220,151,.12),rgba(61,220,151,.03));margin-top:10px;animation:swap .6s ease;box-shadow:0 20px 60px -30px rgba(61,220,151,.4)}
+.vcheck{width:80px;height:80px}
+.vcheck circle{fill:none;stroke:var(--green);stroke-width:2.2;stroke-dasharray:151;animation:draw .7s ease-out both}
+.vcheck path{fill:none;stroke:var(--green);stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;animation:draw2 .5s .5s ease-out both}
+@keyframes draw{from{stroke-dashoffset:151}}
+@keyframes draw2{from{stroke-dashoffset:40}}
+.vresult h3{font:800 1.45rem var(--display);color:var(--green);letter-spacing:.04em;margin-bottom:14px}
+.vresult dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px 30px}
+.vresult dl div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.vresult dt{color:var(--muted)}
+.vresult dd{font:700 .88rem var(--mono);color:var(--green);text-align:right}
+.vresult dd.plain{color:var(--ink);font-family:var(--body)}
+.vnote{grid-column:1/-1;color:var(--amber);font-size:.86rem;line-height:1.5;margin-top:6px}
+
+/* ---------- MARG AI Assistant ---------- */
+.marg-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,70px);align-items:center}
+.marg-grid .sub{font:700 1.2rem var(--display);color:var(--cyan);margin-bottom:12px;letter-spacing:.02em}
+.marg-points{margin-top:30px;display:grid;gap:14px}
+.marg-points li{display:flex;gap:14px;color:var(--muted);font-size:1.02rem;line-height:1.6}
+.marg-points li::before{content:"";flex:none;width:8px;height:8px;margin-top:.62em;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.chat{display:flex;flex-direction:column;border:1px solid var(--line-strong);border-radius:24px;background:linear-gradient(170deg,rgba(20,38,72,.75),rgba(8,17,34,.85));-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);overflow:hidden;min-height:440px;box-shadow:0 40px 95px -45px rgba(76,141,255,.55)}
+.chat-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(5,11,24,.4)}
+.avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#04101F;font:800 .85rem var(--display);flex:none;box-shadow:0 0 14px rgba(53,211,240,.4)}
+.chat-head b{font:700 1rem var(--display);display:block;line-height:1.2;color:#fff}
+.chat-head small{color:var(--cyan);font-size:.78rem;font-family:var(--mono)}
+.chat-x{margin-left:auto;background:none;border:0;cursor:pointer;color:var(--muted);width:34px;height:34px;border-radius:8px;display:none;place-items:center}
+.chat-x:hover{color:#fff;background:rgba(255,255,255,.1)}
+.chat-log{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;max-height:350px}
+.msg{max-width:88%;padding:12px 17px;border-radius:18px;font-size:.95rem;line-height:1.55;animation:swap .35s ease}
+.msg.bot{background:rgba(76,141,255,.14);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start;color:var(--ink)}
+.msg.me{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#04101F;font-weight:600;border-bottom-right-radius:4px;align-self:flex-end}
+.dots{display:inline-flex;gap:5px;padding:4px 0}
+.dots i{width:6.5px;height:6.5px;border-radius:50%;background:var(--cyan);animation:bounce 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes bounce{40%{transform:translateY(-5px);opacity:1}0%,80%,100%{opacity:.4}}
+.quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 14px}
+.quick button{padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(8,20,44,.5);cursor:pointer;font:600 .82rem var(--display);color:var(--muted);transition:background .2s,border-color .2s,color .2s}
+.quick button:hover{background:rgba(53,211,240,.15);border-color:var(--cyan);color:#fff}
+.chat-form{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);background:rgba(5,11,24,.4)}
+.chat-form input{flex:1;min-width:0;padding:12px 16px;border-radius:14px;border:1px solid var(--line-strong);background:rgba(5,11,24,.7);font-size:.92rem;color:#fff}
+.chat-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(53,211,240,.18)}
+.chat-form button{padding:0 20px;border-radius:14px;border:0;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#04101F;font:700 .9rem var(--display);cursor:pointer}
+.chat-note{padding:0 20px 12px;color:var(--faint);font-size:.78rem}
+
+/* ---------- Floating MARG Button & Panel ---------- */
+.fab{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:110;display:flex;align-items:center;gap:11px;padding:12px 20px 12px 14px;border-radius:999px;border:1.5px solid var(--line-strong);background:rgba(8,19,38,.9);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);cursor:pointer;font:700 .9rem var(--display);color:#fff;box-shadow:0 16px 45px -10px rgba(0,0,0,.8),0 0 25px rgba(53,211,240,.3);transition:border-color .25s,transform .25s}
+.fab:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 20px 50px -10px rgba(53,211,240,.5)}
+.fab .avatar{width:32px;height:32px;border-radius:10px}
+.fpanel{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(82px + env(safe-area-inset-bottom,0px));z-index:115;width:min(400px,calc(100vw - 36px));display:none}
+.fpanel.open{display:block;animation:swap .3s ease}
+.fpanel .chat{min-height:0;background:linear-gradient(170deg,#12244A,#08111F);-webkit-backdrop-filter:none;backdrop-filter:none}
+.fpanel .chat-log{max-height:min(320px,45vh)}
+.fpanel .chat-x{display:grid}
+
+/* ---------- Nagrik Vault Section ---------- */
+.vault{border:1px solid var(--line-strong);border-radius:28px;background:var(--panel);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);overflow:hidden;box-shadow:0 30px 90px -40px rgba(0,0,0,.7)}
+.vault-top{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding:22px clamp(20px,3vw,34px);border-bottom:1px solid var(--line);background:rgba(8,18,36,.4)}
+.who{display:flex;align-items:center;gap:15px}
+.who .avatar{width:46px;height:46px;border-radius:50%;font-size:.95rem}
+.who b{display:block;font:700 1.05rem var(--display);line-height:1.25;color:#fff}
+.who small{color:var(--muted);font-size:.84rem}
+.filters{display:flex;gap:6px;padding:5px;border-radius:999px;border:1px solid var(--line);background:rgba(5,11,24,.6)}
+.filters button{padding:8px 20px;border-radius:999px;border:0;background:none;cursor:pointer;font:700 .86rem var(--display);color:var(--muted);transition:all .25s}
+.filters button[aria-pressed="true"]{background:linear-gradient(135deg,rgba(76,141,255,.3),rgba(53,211,240,.3));color:#fff;box-shadow:inset 0 0 0 1px var(--line-strong),0 0 14px rgba(53,211,240,.25)}
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:clamp(20px,3vw,34px)}
+.vc{padding:24px;border-radius:20px;border:1px solid var(--line);background:rgba(5,11,24,.5);transition:transform .3s,border-color .3s,box-shadow .3s;animation:swap .4s ease both}
+.vc:hover{transform:translateY(-5px);border-color:var(--line-strong);box-shadow:0 20px 50px -25px rgba(53,211,240,.4)}
+.vc-top{display:flex;gap:15px;align-items:center;margin-bottom:18px}
+.vc-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:rgba(76,141,255,.16);color:var(--cyan);flex:none;border:1px solid rgba(76,141,255,.25)}
+.vc h3{font:700 1.12rem var(--display);line-height:1.25;color:#fff}
+.vc-top .chips{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.vc dl{display:grid;gap:0}
+.vc dl div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:.9rem}
+.vc dt{color:var(--muted)}
+.vc dd{text-align:right;font-weight:600;color:var(--ink)}
+.vc .qrbtn{margin-top:16px;display:inline-flex;align-items:center;gap:9px;padding:9px 18px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(8,18,36,.5);cursor:pointer;font:600 .86rem var(--display);transition:border-color .25s,background .25s,box-shadow .25s}
+.vc .qrbtn:hover{border-color:var(--cyan);background:rgba(53,211,240,.12);box-shadow:0 0 15px rgba(53,211,240,.25)}
+dialog{border:1px solid var(--line-strong);border-radius:24px;background:#0A1528;color:var(--ink);padding:30px;max-width:360px;width:calc(100% - 32px);box-shadow:0 30px 90px rgba(0,0,0,.85)}
+dialog::backdrop{background:rgba(2,6,14,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog h3{font:700 1.2rem var(--display);margin-bottom:4px;color:#fff}
+dialog .qrbig{width:230px;max-width:100%;margin:20px auto;padding:16px;border-radius:16px;background:#fff;color:#07101F}
+dialog .qrbig svg{display:block;width:100%;height:auto}
+dialog p{color:var(--muted);font-size:.88rem;line-height:1.5}
+dialog .btn{margin-top:20px;width:100%}
+
+/* ---------- Impact Section ---------- */
+.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.icard{position:relative;padding:clamp(28px,3.6vw,44px);border-radius:26px;border:1px solid var(--line);background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s}
+.icard::before{content:"";position:absolute;right:-60px;top:-60px;width:190px;height:190px;border-radius:50%;border:1px solid var(--line);box-shadow:0 0 0 30px rgba(76,141,255,.04),0 0 0 60px rgba(76,141,255,.025);transition:transform .6s}
+.icard:hover,.icard:focus-within{transform:translateY(-8px);border-color:var(--line-strong);box-shadow:0 32px 75px -40px rgba(53,211,240,.5)}
+.icard:hover::before{transform:scale(1.25)}
+.icard h3{font:700 clamp(1.45rem,2.6vw,2rem) var(--display);margin-bottom:20px;letter-spacing:-.01em;color:#fff}
+.icard li{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--line);color:var(--ink);overflow:hidden;font-size:1.02rem;transition:max-height .5s ease,opacity .5s ease,padding .5s ease}
+.icard li::before{content:"";flex:none;width:8px;height:8px;margin-top:.65em;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+@media (hover:hover){
+  .icard li:nth-child(n+2){max-height:0;opacity:0;padding-block:0;border-top-color:transparent}
+  .icard:hover li,.icard:focus-within li{max-height:60px;opacity:1;padding-block:10px;border-top-color:var(--line)}
+  .icard h3::after{content:"Hover to explore";display:block;margin-top:8px;font:500 .8rem var(--display);color:var(--faint);transition:opacity .3s}
+  .icard:hover h3::after,.icard:focus-within h3::after{opacity:0}
+}
+
+/* ---------- Sticky Horizontal Impact Chain ---------- */
+.chain{height:400vh;padding:0}
+.chain-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(26px,5vh,60px);padding-top:calc(64px + env(safe-area-inset-top,0px))}
+.chain-track{display:flex;align-items:stretch;gap:0;width:max-content;padding:0 var(--gutter);will-change:transform}
+.cpanel{position:relative;flex:none;width:min(82vw,560px);padding:clamp(26px,4.2vw,48px);border-radius:28px;border:1px solid var(--line);background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:flex;flex-direction:column;justify-content:space-between;min-height:min(54vh,420px);opacity:.45;transform:scale(.95);transition:opacity .5s,transform .5s,border-color .5s,box-shadow .5s}
+.cpanel.on{opacity:1;transform:scale(1);border-color:var(--line-strong);box-shadow:0 32px 85px -40px rgba(53,211,240,.55)}
+.cpanel .idx{font:700 .88rem var(--mono);color:var(--cyan)}
+.cpanel h3{font:800 clamp(2.6rem,7vw,4.8rem)/1 var(--display);letter-spacing:-.035em;margin:30px 0 14px;overflow-wrap:anywhere;color:#fff}
+.cpanel p{font-size:clamp(1.1rem,1.8vw,1.35rem);color:var(--muted);line-height:1.5}
+.carrow{flex:none;align-self:center;width:76px;height:2.5px;background:linear-gradient(90deg,var(--line-strong),var(--cyan));position:relative}
+.carrow::after{content:"";position:absolute;right:0;top:-4.5px;width:11px;height:11px;border-top:2.5px solid var(--cyan);border-right:2.5px solid var(--cyan);transform:rotate(45deg)}
+.chain-meter{display:flex;gap:10px;padding:0 var(--gutter)}
+.chain-meter i{flex:1;max-width:84px;height:3.5px;border-radius:3px;background:var(--line);overflow:hidden;position:relative}
+.chain-meter i::after{content:"";position:absolute;inset:0;background:var(--cyan);box-shadow:0 0 8px var(--cyan);transform:scaleX(var(--p,0));transform-origin:0 50%}
+.chain-head{padding:0 var(--gutter)}
+.chain.static{height:auto}
+.chain.static .chain-sticky{position:static;height:auto;overflow-x:auto;padding-block:90px}
+.chain.static .cpanel{opacity:1;transform:scale(1)}
+
+/* ---------- Team Section ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.tcard{display:grid;justify-items:center;text-align:center;gap:20px;padding:36px 22px;border-radius:24px;border:1px solid var(--line);background:var(--panel);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.tcard:hover{transform:translateY(-8px);border-color:var(--line-strong);box-shadow:0 24px 60px -30px rgba(53,211,240,.4)}
+.ava{display:grid;place-items:center;width:88px;height:88px;border-radius:50%;font:700 1.6rem var(--display);color:#fff;background:radial-gradient(circle at 30% 25%,rgba(76,141,255,.4),rgba(10,20,40,.92));border:1.5px solid var(--line-strong);position:relative;box-shadow:0 0 25px rgba(76,141,255,.25)}
+.ava::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px dashed var(--line)}
+.tcard h3{font:700 1.15rem var(--display);color:#fff}
+.tcard small{color:var(--cyan);font:600 .78rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
+
+/* ---------- Final Sovereign CTA ---------- */
+.final{padding:clamp(115px,16vw,210px) 0;text-align:center;overflow:hidden;position:relative}
+.final-sym{position:absolute;left:50%;top:50%;width:min(940px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);opacity:.32;pointer-events:none}
+.final-sym svg{width:100%;height:100%;overflow:visible}
+.final-sym .tick{transform-origin:200px 200px;animation:slowspin 90s linear infinite}
+.final-sym .tick2{transform-origin:200px 200px;animation:slowspin 140s linear infinite reverse}
+@keyframes slowspin{to{transform:rotate(360deg)}}
+.final-sym .chk{fill:none;stroke:var(--green);stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:140;box-shadow:0 0 20px var(--green)}
+.final-sym.in .chk{animation:draw3 1.4s .3s ease-out both}
+@keyframes draw3{from{stroke-dashoffset:140}}
+.final .container{position:relative;z-index:2}
+.final h2{font:800 clamp(2.6rem,7vw,5.6rem)/1 var(--display);letter-spacing:-.035em;color:#fff}
+.final p{color:var(--muted);max-width:46ch;margin:26px auto 0;font-size:1.15rem;line-height:1.65}
+.final .cta-row{justify-content:center}
+
+/* ---------- Footer ---------- */
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:60px 0 46px;background:rgba(5,11,24,.8)}
+.foot{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px}
+.foot p{color:var(--muted);max-width:40ch;margin-top:14px;font-size:.95rem;line-height:1.6}
+.foot ul{display:grid;grid-template-columns:repeat(2,auto);gap:12px 44px;justify-content:start}
+.foot ul a{color:var(--muted);font:500 .92rem var(--display);transition:color .2s}
+.foot ul a:hover{color:var(--cyan)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);color:var(--faint);font-size:.84rem}
+.foot-base b{color:var(--ink);font:700 .88rem var(--display);letter-spacing:.04em}
+
+/* ---------- Responsive Breakpoints ---------- */
+@media (max-width:1040px){
+  .cards4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line);margin-top:30px}
+}
+@media (max-width:960px){
+  .burger{display:grid}
+  .navlinks{position:fixed;top:calc(72px + env(safe-area-inset-top,0px));left:14px;right:14px;flex-direction:column;padding:12px;border-radius:20px;background:rgba(8,19,38,.98);border:1px solid var(--line-strong);display:none;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 20px 50px rgba(0,0,0,.8)}
+  .navlinks.open{display:flex}
+  .navlinks a{padding:13px 16px;font-size:1.02rem;width:100%}
+  .hero-in,.marg-grid,.vpanel{grid-template-columns:minmax(0,1fr)}
+  .hero-visual{max-width:540px;margin-inline:auto}
+  .arch{grid-template-columns:minmax(0,1fr)}
+  .alink{width:2.5px;height:52px;justify-self:center}
+  .alink::after{top:0;left:-4px;animation-name:flowv}
+  @keyframes flowv{from{top:0;opacity:0}15%,85%{opacity:1}to{top:calc(100% - 10px);opacity:0}}
+  .arch:hover .acol:not(:hover){opacity:1}
+  .engine-wrap{grid-template-columns:minmax(0,1fr)}
+  .engine-stage-col{position:static}
+  .estep,.estep:first-child{min-height:0;padding:8px 0}
+  .estep-card{opacity:.8;padding-block:16px}
+  .estep.on .estep-card{opacity:1}
+  .impact-grid{grid-template-columns:minmax(0,1fr)}
+  .tl-line{left:24px}
+  .tl-step{grid-template-columns:48px 1fr;column-gap:20px}
+  .tl-node{grid-column:1;grid-row:1}
+  .tl-card,.tl-step:nth-child(even) .tl-card{grid-column:2;grid-row:1;text-align:left}
+  .vgrid{grid-template-columns:minmax(0,1fr)}
+  .foot{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:580px){
+  .cards4,.team-grid{grid-template-columns:minmax(0,1fr)}
+  .logo-text small{display:none}
+  .btn.sm,.btn.portal{padding:8px 14px;font-size:.8rem}
+  .hero-visual{grid-template-columns:minmax(0,1fr)}
+  .rail{flex-direction:row;flex-wrap:wrap;padding:0;gap:8px}
+  .rail::before,.rail::after{display:none}
+  .rail li{padding:6px 14px;max-width:none;border:1px solid var(--line);border-radius:999px;font-size:.66rem}
+  .rail li::before{display:none}
+  .lc-detail{grid-template-columns:minmax(0,1fr)}
+  .lc-detail p{grid-column:1}
+  .vresult{grid-template-columns:minmax(0,1fr)}
+  .mods{grid-template-columns:minmax(0,1fr)}
+  .fab span.l{display:none}
+  .fab{padding:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .marquee-track{flex-wrap:wrap;width:auto}
+  .marquee-track p:nth-child(2){display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#problem">Skip to content</a>
+<div class="progress" id="progress" role="presentation"></div>
+<div class="bg" aria-hidden="true">
+  <div class="bg-grid" id="bgGrid"></div>
+  <div class="bg-glow a" id="glowA"></div>
+  <div class="bg-glow b" id="glowB"></div>
+  <div class="bg-glow c" id="glowC"></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container nav-in">
+    <a class="logo" href="#home" aria-label="BHAROSA home">
+      <div class="logo-symbol">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2l11 4v9c0 7-4.7 12-11 15C9.700 27 5 22 5 15V6z" stroke="#35D3F0" stroke-width="1.8"/><path d="M11 16.500l3.500 3.500L21.500 12" stroke="#3DDC97" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="logo-text">
+        <b>BHAROSA</b>
+        <small>Bharat Sovereign Trust</small>
+      </div>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="navlinks" id="navLinks">
+        <li><a href="#home" data-sec="home">Home</a></li>
+        <li><a href="#problem" data-sec="problem">Problem</a></li>
+        <li><a href="#solution" data-sec="solution">Solution</a></li>
+        <li><a href="#engine" data-sec="engine">Trust Engine</a></li>
+        <li><a href="#how" data-sec="how">How It Works</a></li>
+        <li><a href="#verify" data-sec="verify">Verify</a></li>
+        <li><a href="#vault" data-sec="vault">Nagrik Vault</a></li>
+        <li><a href="#impact" data-sec="impact">Impact</a></li>
+        <li><a href="#team" data-sec="team">Team</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="btn sm magnetic" href="#verify">Verify Credential</a>
+      <a class="btn portal magnetic" href="/#portal">Portal Access</a>
+      <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home" data-nav="home">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="container hero-in">
+    <div>
+      <div class="sovereign-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Sovereign Multi-Sector Trust Infrastructure
+      </div>
+      <h1 class="brand" aria-label="BHAROSA">
+        <span style="--i:0">B</span><span style="--i:1">H</span><span style="--i:2">A</span><span style="--i:3">R</span><span style="--i:4">O</span><span style="--i:5">S</span><span style="--i:6">A</span>
+      </h1>
+      <p class="sub">Bharat Hub for Records, Online Security &amp; Authentication</p>
+      <p class="desc">A sovereign multi-sector platform for issuing, storing, sharing and instantly verifying trusted digital credentials with cryptographic certainty.</p>
+      <div class="cta-row">
+        <a class="btn primary magnetic" href="#solution">Explore Solution</a>
+        <a class="btn magnetic" href="#verify">Verify a Credential</a>
+        <a class="btn gold magnetic" href="#vault">Nagrik Vault Demo</a>
+      </div>
+      <p class="chainline" aria-label="Issue, store, share, verify">
+        Issue <b>→</b> Store <b>→</b> Share <b>→</b> Instant Verify
+      </p>
+    </div>
+    <div class="hero-visual">
+      <ol class="rail" aria-label="BHAROSA trust layer">
+        <li>ACCREDITED AUTHORITY</li>
+        <li>DIGITALLY SIGNED MERKLE</li>
+        <li>NAGRIK SOVEREIGN VAULT</li>
+        <li>QR / CERT ID / SHA-256</li>
+        <li>CRYPTOGRAPHICALLY VERIFIED</li>
+      </ol>
+      <div class="credwrap" id="credBox">
+        <article class="cred" id="cred" aria-label="Sample BHAROSA verified digital certificate">
+          <svg class="cred-seal-wm" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="50" cy="50" r="46"/>
+            <circle cx="50" cy="50" r="32"/>
+            <path d="M50 4v92M4 50h92M17 17l66 66M17 83L83 17"/>
+          </svg>
+          <div class="cred-top">
+            <div class="cred-top-brand">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.500 12.500l3 3 6-6.500"/></svg>
+              BHAROSA VERIFIED
+            </div>
+            <span class="chip ok"><i></i>ACTIVE</span>
+          </div>
+          <h3>Digital Degree Certificate</h3>
+          <p class="cid">BHR-EDU-2026-000123 · Sovereign Mint</p>
+          <dl>
+            <div><dt>Issuer Authority</dt><dd>IIT Delhi Academic Council</dd></div>
+            <div><dt>SHA-256 Merkle Hash</dt><dd class="hash">9f2c1a7e4b63d08a…92f641</dd></div>
+            <div><dt>Digital Signature</dt><dd>ECDSA P-256 Valid</dd></div>
+            <div><dt>Verification Status</dt><dd style="color:var(--green)">Authenticity Guaranteed</dd></div>
+          </dl>
+          <div class="cred-foot">
+            <div class="qr" data-qr="BHR-EDU-2026-000123" title="Sample Credential QR" aria-hidden="true"></div>
+            <div style="text-align:right">
+              <div style="font-size:.78rem;color:var(--faint);font-family:var(--mono)">MINTED 2026</div>
+              <div style="font-size:.84rem;font-weight:600;color:var(--cyan)">Zero-Knowledge Proof</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="sec" id="problem" data-nav="problem">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>The Challenge</span>
+      <h2 class="title">Why Digital Documents Still Need a Sovereign Verification Layer</h2>
+      <p class="lede">Digital certificates can easily exist as standalone PDF files, but proving that they are genuine, untampered, and unrevoked remains fragmented across India.</p>
+    </div>
+    <div class="cards4">
+      <article class="pcard reveal" style="--d:0ms">
+        <span class="n">01 / ARCHITECTURE</span>
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="5" width="7" height="7" rx="1"/><rect x="5" y="14" width="7" height="7" rx="1"/><path d="M10 6.500h4M8 10v4" stroke-dasharray="2 2"/></svg>
+        <h3>Fragmentation</h3>
+        <p>Disparate government authorities, universities, municipal boards, and portals with zero unified trust protocol.</p>
+      </article>
+      <article class="pcard reveal" style="--d:80ms">
+        <span class="n">02 / INTEGRITY</span>
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h7l4 4v14H8z"/><path d="M15 3v4h4"/><path d="M4 8v13h4" stroke-dasharray="2 2"/></svg>
+        <h3>Forgery Risk</h3>
+        <p>A simple PDF or printed paper copy cannot prove origin, cryptographic integrity, or active status.</p>
+      </article>
+      <article class="pcard reveal" style="--d:160ms">
+        <span class="n">03 / VELOCITY</span>
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Manual Verification</h3>
+        <p>Employers, visa offices, and institutes waste weeks sending physical verification letters and manual emails.</p>
+      </article>
+      <article class="pcard reveal" style="--d:240ms">
+        <span class="n">04 / ARCHIVES</span>
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v10h14V9M10 13h4"/></svg>
+        <h3>Legacy Records</h3>
+        <p>Decades of physical certificates, land deeds, and municipal registers remain outside the digital trust loop.</p>
+      </article>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Too many papers, too many portals, too many manual checks">
+    <div class="marquee-track" aria-hidden="true">
+      <p>TOO MANY PAPERS<b>→</b>TOO MANY PORTALS<b>→</b>TOO MANY MANUAL CHECKS<b>→</b>TAMPERABLE COPIES<b>→</b></p>
+      <p>TOO MANY PAPERS<b>→</b>TOO MANY PORTALS<b>→</b>TOO MANY MANUAL CHECKS<b>→</b>TAMPERABLE COPIES<b>→</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTION ================= -->
+<section class="sec" id="solution" data-nav="solution">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Sovereign Design</span>
+      <h2 class="title">One Sovereign Trust Infrastructure</h2>
+      <p class="lede">Seamlessly bridging citizens, accredited sovereign issuers, and global public verifiers through cryptographic proof.</p>
+    </div>
+    <div class="arch reveal">
+      <div class="acol">
+        <h3>ACCREDITED ISSUERS</h3>
+        <ul class="plain">
+          <li>Government Ministries &amp; State Depts</li>
+          <li>Universities, Boards &amp; Autonomous Institutes</li>
+          <li>Healthcare Councils &amp; Medical Boards</li>
+          <li>Trade, Commerce &amp; Professional Guilds</li>
+          <li>Judicial &amp; Land Revenue Registrars</li>
+        </ul>
+        <h4>Authority Capabilities</h4>
+        <div class="fn"><span>Digitally Sign</span><span>Approve</span><span>Revoke</span><span>Batch Mint</span></div>
+      </div>
+      <div class="alink" aria-hidden="true"></div>
+      <div class="acol engine">
+        <h3>BHAROSA TRUST ENGINE</h3>
+        <div class="mods">
+          <div class="mod" style="--i:0"><span data-icon="sig"></span>Digital Signature</div>
+          <div class="mod" style="--i:1"><span data-icon="hash"></span>SHA-256 Hash</div>
+          <div class="mod" style="--i:2"><span data-icon="qr"></span>QR / ID Verification</div>
+          <div class="mod" style="--i:3"><span data-icon="rev"></span>Revocation Registry</div>
+          <div class="mod" style="--i:4"><span data-icon="vault"></span>Nagrik Vault</div>
+          <div class="mod" style="--i:5"><span data-icon="audit"></span>Immutable Audit Trail</div>
+        </div>
+        <div class="triad"><span>Integrity</span><b>+</b><span>Authenticity</span><b>+</b><span>Live Status</span></div>
+      </div>
+      <div class="alink rev" aria-hidden="true"></div>
+      <div class="acol">
+        <h3>END PARTICIPANTS</h3>
+        <h4 style="margin-top:0">Citizen (Nagrik)</h4>
+        <ul class="plain">
+          <li>Self-Sovereign Storage</li>
+          <li>Encrypted Sharing</li>
+          <li>Family Member Linking</li>
+          <li>1-Click Renewal</li>
+        </ul>
+        <h4>Public Verifier</h4>
+        <ul class="plain">
+          <li>Instant QR Scan</li>
+          <li>Direct Certificate ID Lookup</li>
+          <li>Zero-Knowledge PDF Hash Match</li>
+        </ul>
+      </div>
+    </div>
+    <div class="facts reveal">
+      <div class="fact"><strong data-count="3">3</strong><span>National stakeholder pillars: Citizens, Authorities, Verifiers</span></div>
+      <div class="fact"><strong data-count="5">5</strong><span>Accredited issuer domains unified in one sovereign network</span></div>
+      <div class="fact"><strong data-count="6">6</strong><span>Cryptographic modules securing every transaction</span></div>
+      <div class="fact"><strong data-count="3">3</strong><span>Zero-friction verification vectors: QR code, Cert ID, PDF hash</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ENGINE (Sticky Story) ================= -->
+<section class="sec" id="engine" data-nav="engine">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Interactive Core</span>
+      <h2 class="title">Inside the BHAROSA Trust Engine</h2>
+      <p class="lede">Explore the 6 core pillars of our cryptographic consensus. Tap any satellite node or scroll down to walk through the engine step-by-step.</p>
+    </div>
+    <div class="engine-wrap">
+      <div class="engine-stage-col">
+        <div class="stage" id="stage">
+          <svg id="stageSvg" viewBox="0 0 100 100" aria-hidden="true"></svg>
+          <div class="hub"><div><b>BHAROSA</b><small>Trust Engine</small></div></div>
+        </div>
+        <div class="readout" id="readout" aria-live="polite"></div>
+        <div class="triad" style="margin-top:16px"><span>Integrity</span><b>+</b><span>Authenticity</span><b>+</b><span>Status</span></div>
+      </div>
+      <div id="eSteps"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="sec" id="how" data-nav="how">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>The Workflow</span>
+      <h2 class="title">How a Credential Travels Through BHAROSA</h2>
+      <p class="lede">From citizen application to tamper-proof verification in 6 seamless phases. Scroll down to trace the journey.</p>
+    </div>
+    <div class="tl" id="tl">
+      <div class="tl-line"><div class="tl-fill" id="tlFill"></div></div>
+      <div class="tl-step"><div class="tl-node">01</div><div class="tl-card"><h3>1. Apply</h3><p>Citizen selects sector, required service, and uploads requisite eligibility proofs through the sovereign portal.</p></div></div>
+      <div class="tl-step"><div class="tl-node">02</div><div class="tl-card"><h3>2. Prove</h3><p>Identity verification through Aadhaar e-KYC, DigiLocker integration, or legacy archival digitization scans.</p></div></div>
+      <div class="tl-step"><div class="tl-node">03</div><div class="tl-card"><h3>3. Verify</h3><p>Accredited authority scrutinizes submitted documents, checks regulatory registries, and approves the issuance.</p></div></div>
+      <div class="tl-step"><div class="tl-node">04</div><div class="tl-card"><h3>4. Sign &amp; Mint</h3><p>Authority HSM creates an ECDSA P-256 digital signature, Merkle root, and SHA-256 hash stamp on the credential.</p></div></div>
+      <div class="tl-step"><div class="tl-node">05</div><div class="tl-card"><h3>5. Vault</h3><p>Tamper-proof credential securely deposits into the citizen's Nagrik Vault with encrypted selective-disclosure permissions.</p></div></div>
+      <div class="tl-step"><div class="tl-node">06</div><div class="tl-card"><h3>6. Public Verify</h3><p>Anyone worldwide instantly verifies the certificate within 500ms using the secure QR, ID, or PDF hash.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIFECYCLE ================= -->
+<section class="sec" id="lifecycle" data-nav="how">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Dynamic Lifecycle</span>
+      <h2 class="title">The Complete Credential Lifecycle</h2>
+      <p class="lede">Select any lifecycle state to observe its real-time legal status, cryptographic footprint, and verifier response.</p>
+    </div>
+    <div class="reveal">
+      <div class="lc-scroll"><div class="lc-track" id="lcTrack"><div class="lc-line"><div class="lc-fill" id="lcFill"></div></div></div></div>
+      <div class="lc-detail" id="lcDetail" aria-live="polite"></div>
+      <p class="statement">Every status transition is cryptographically signed, timestamped, and instantaneously visible to authorized verifiers across India.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VERIFY SIMULATOR ================= -->
+<section class="sec" id="verify" data-nav="verify">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Live Public Tool</span>
+      <h2 class="title">Verify Any Credential</h2>
+      <p class="lede">Test the instant cryptographic verification mechanism. Enter a Certificate ID, inspect a PDF SHA-256 hash, or tap the interactive QR code.</p>
+    </div>
+    <div class="vpanel reveal">
+      <form id="verifyForm" novalidate>
+        <div class="demo-flag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16.500v.01"/></svg>
+          Interactive Sovereign Demonstration · Real Cryptographic Algorithms
+        </div>
+        <div class="field">
+          <label for="certId">Certificate ID</label>
+          <input id="certId" autocomplete="off" spellcheck="false" placeholder="BHR-EDU-2026-000123">
+        </div>
+        <div class="field">
+          <label for="pdfHash">PDF Hash (SHA-256)</label>
+          <input id="pdfHash" autocomplete="off" spellcheck="false" placeholder="9f2c1a7e4b63d08a5c1e97f3b20d46a8e15c7b9023fa64d18e0b5c3a7d92f641">
+        </div>
+        <div class="vbtns">
+          <button type="submit" class="btn primary magnetic" id="vBtn">Verify Credential</button>
+          <button type="button" class="linkbtn" id="vSample">Auto-fill sample credential</button>
+        </div>
+      </form>
+      <div class="scan">
+        <button type="button" class="scanbox" id="scanBtn" aria-label="Scan sample QR code">
+          <span class="cr tl1"></span><span class="cr tr1"></span><span class="cr bl1"></span><span class="cr br1"></span>
+          <span id="scanQr" style="display:block;width:100%;height:100%"></span>
+        </button>
+        <p>Tap the QR viewfinder to simulate a real-world smartphone camera scan.</p>
+      </div>
+      <div class="vout" id="vOut"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARG AI GUIDE ================= -->
+<section class="sec" id="marg" data-nav="verify">
+  <div class="container marg-grid">
+    <div class="reveal">
+      <span class="title-badge"><i></i>Sovereign AI Copilot</span>
+      <h2 class="title">MARG: Your AI Trust Guide</h2>
+      <p class="lede">MARG intelligently assists citizens through eligibility requirements, required documents, Tatkal fast-track processes, and verifications.</p>
+      <ul class="marg-points">
+        <li>Ask any question in conversational English or Hindi.</li>
+        <li>Select from quick preset prompts to see instant authoritative responses.</li>
+        <li>Accessible everywhere across the portal via the floating bottom-right assistant.</li>
+      </ul>
+    </div>
+    <div class="reveal" id="margInline"></div>
+  </div>
+</section>
+
+<!-- ================= NAGRIK VAULT ================= -->
+<section class="sec" id="vault" data-nav="vault">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Citizen Self-Sovereignty</span>
+      <h2 class="title">Nagrik Sovereign Vault</h2>
+      <p class="lede">One centralized, encrypted digital home for all citizen certificates, licenses, and verified records across education, health, revenue, and trade.</p>
+    </div>
+    <div class="vault reveal">
+      <div class="vault-top">
+        <div class="who">
+          <div class="avatar" aria-hidden="true">AS</div>
+          <div>
+            <b>Aarav Sharma</b>
+            <small>Nagrik ID: BHR-CITIZEN-9842 · Verified Aadhaar Linked</small>
+          </div>
+        </div>
+        <div class="filters" role="group" aria-label="Filter credentials" id="vFilters">
+          <button type="button" data-f="all" aria-pressed="true">All Records</button>
+          <button type="button" data-f="active" aria-pressed="false">Active</button>
+          <button type="button" data-f="expired" aria-pressed="false">Expired</button>
+          <button type="button" data-f="shared" aria-pressed="false">Shared</button>
+        </div>
+      </div>
+      <div class="vgrid" id="vGrid" aria-live="polite"></div>
+    </div>
+  </div>
+  <dialog id="qrDialog" aria-labelledby="qrTitle">
+    <h3 id="qrTitle">Credential QR</h3>
+    <p class="mono" id="qrId" style="color:var(--cyan);font-size:.85rem;margin-bottom:12px"></p>
+    <div class="qrbig" id="qrBig"></div>
+    <p>Sovereign QR containing embedded cryptographic signature. Point any smartphone camera to test instant verification.</p>
+    <button class="btn primary" id="qrClose" type="button">Dismiss</button>
+  </dialog>
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section class="sec" id="impact" data-nav="impact">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Measurable Impact</span>
+      <h2 class="title">What Changes When Credentials Become Sovereignly Verifiable</h2>
+      <p class="lede">Transforming the cost, velocity, and reliability of administrative trust across every sector in India.</p>
+    </div>
+    <div class="impact-grid">
+      <article class="icard reveal" tabindex="0">
+        <h3>CITIZENS</h3>
+        <ul>
+          <li>Zero physical paperwork queues &amp; no notary visits</li>
+          <li>1-Click encrypted sharing via QR, Link, or PDF</li>
+          <li>Permanent digital wallet for life &amp; family</li>
+          <li>Instant notifications on credential status changes</li>
+        </ul>
+      </article>
+      <article class="icard reveal" tabindex="0" style="--d:90ms">
+        <h3>GOVERNMENT</h3>
+        <ul>
+          <li>90% reduction in manual verification overhead</li>
+          <li>Immutable cryptographic audit trail for RTI &amp; anti-fraud</li>
+          <li>Centralized revocation registry across all state boards</li>
+          <li>Automated compliance with digital governance acts</li>
+        </ul>
+      </article>
+      <article class="icard reveal" tabindex="0">
+        <h3>INSTITUTIONS</h3>
+        <ul>
+          <li>Sub-second background checks for employers &amp; colleges</li>
+          <li>Zero liability from counterfeit or forged documents</li>
+          <li>Standardized API endpoints for bulk batch validation</li>
+          <li>Cross-border credibility for international admissions</li>
+        </ul>
+      </article>
+      <article class="icard reveal" tabindex="0" style="--d:90ms">
+        <h3>NATIONAL ECOSYSTEM</h3>
+        <ul>
+          <li>Interoperability between DigiLocker, APAC, and Global standards</li>
+          <li>Vintage archives digitized into searchable Merkle proofs</li>
+          <li>Sovereign data security with zero foreign server reliance</li>
+          <li>Economic efficiency adding billions in saved man-hours</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT CHAIN ================= -->
+<section class="chain sec-edge" id="chain" data-nav="impact" aria-label="Impact chain">
+  <div class="chain-sticky">
+    <div class="chain-head">
+      <span class="title-badge"><i></i>The Virtuous Loop</span>
+      <h2 class="title">The National Impact Chain</h2>
+    </div>
+    <div class="chain-track" id="chainTrack"></div>
+    <div class="chain-meter" id="chainMeter" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="sec" id="team" data-nav="team">
+  <div class="container">
+    <div class="head reveal">
+      <span class="title-badge"><i></i>Builders</span>
+      <h2 class="title">TEAM MASTI</h2>
+      <p class="lede">4 Minds • 1 Sovereign Mission • Digital Trust for 1.4 Billion Citizens</p>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final sec-edge" id="cta" data-nav="team">
+  <div class="final-sym" id="finalSym" aria-hidden="true"></div>
+  <div class="container reveal">
+    <div class="title-badge" style="margin-inline:auto"><i></i>Sovereign Guarantee</div>
+    <h2>Trust Every Credential. Everywhere.</h2>
+    <p>From an untrusted paper document in your hands to an unforgeable sovereign proof verified by anyone, anywhere in milliseconds.</p>
+    <div class="cta-row">
+      <a class="btn primary magnetic" href="#solution">Explore Architecture</a>
+      <a class="btn magnetic" href="#verify">Try Verifier Simulator</a>
+      <a class="btn gold magnetic" href="#vault">Open Nagrik Vault</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#home">
+          <div class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2l11 4v9c0 7-4.7 12-11 15C9.700 27 5 22 5 15V6z" stroke="#35D3F0" stroke-width="1.8"/><path d="M11 16.500l3.500 3.500L21.500 12" stroke="#3DDC97" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="logo-text">
+            <b>BHAROSA</b>
+            <small>Bharat Sovereign Trust Layer</small>
+          </div>
+        </a>
+        <p>Bharat Hub for Records, Online Security &amp; Authentication. Architected as a sovereign multi-sector digital trust layer designed for the Digital India ecosystem.</p>
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problem">Problem Statement</a></li>
+        <li><a href="#solution">Architecture</a></li>
+        <li><a href="#engine">Trust Engine</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#verify">Verify Simulator</a></li>
+        <li><a href="#vault">Nagrik Vault</a></li>
+        <li><a href="#impact">National Impact</a></li>
+        <li><a href="#team">Team Masti</a></li>
+      </ul>
+    </div>
+    <div class="foot-base">
+      <b>BHAROSA • Sovereign Digital Trust Infrastructure</b>
+      <span>Built with pride for Bharat. Simulated demonstration interface showcasing end-to-end cryptographic verification workflows.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating MARG Assistant -->
+<div class="fpanel" id="fPanel" role="dialog" aria-label="MARG AI assistant"></div>
+<button class="fab" id="fab" aria-expanded="false" aria-controls="fPanel"><span class="avatar" aria-hidden="true">M</span><span class="l">Ask MARG AI</span></button>
+
+<script>
+(()=>{
+'use strict';
+document.documentElement.classList.replace('no-js','js');
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover=matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+/* ---------- SVG Icon Dictionary ---------- */
+const ICON={
+  sig:'<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
+  hash:'<path d="M5 9h14M5 15h14M10 4L8 20M16 4l-2 16"/>',
+  qr:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v3M14 20h7"/>',
+  rev:'<circle cx="12" cy="12" r="9"/><path d="M5.600 5.600l12.800 12.800"/>',
+  vault:'<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3M12 14v2"/>',
+  audit:'<path d="M5 6h14M5 12h14M5 18h8"/><circle cx="18" cy="18" r="2.500"/>',
+  edu:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c3 2.500 9 2.500 12 0v-4.500"/>',
+  health:'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/>',
+  pro:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M3 13h18"/>',
+  gov:'<path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/>'
+};
+const svgIcon=(k,s=22)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]||''}</svg>`;
+const hydrate=(root=document)=>$$('[data-icon]',root).forEach(e=>{e.innerHTML=svgIcon(e.dataset.icon);e.style.display='inline-flex'});
+
+/* ---------- QR-style Procedural Generator ---------- */
+function qr(seed,n=25){
+  let h=2166136261;for(const c of seed){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}
+  const rnd=()=>{h|=0;h=h+0x6D2B79F5|0;let t=Math.imul(h^h>>>15,1|h);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+  const inF=(x,y)=>(x<8&&y<8)||(x>=n-8&&y<8)||(x<8&&y>=n-8);
+  let r='';
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(!inF(x,y)&&rnd()>.5)r+=`<rect x="${x}" y="${y}" width="1" height="1"/>`;
+  const f=(ox,oy)=>`<path fill-rule="evenodd" d="M${ox} ${oy}h7v7h-7zM${ox+1} ${oy+1}h5v5h-5z"/><rect x="${ox+2}" y="${oy+2}" width="3" height="3"/>`;
+  return `<svg viewBox="-1 -1 ${n+2} ${n+2}" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">${r}${f(0,0)}${f(n-7,0)}${f(0,n-7)}</svg>`;
+}
+$$('[data-qr]').forEach(e=>e.innerHTML=qr(e.dataset.qr));
+$('#scanQr').innerHTML=qr('BHR-EDU-2026-000123');
+
+/* ---------- Mobile Navigation & Active Section Tracking ---------- */
+const nav=$('#nav'), links=$('#navLinks'), burger=$('#burger');
+burger.addEventListener('click',()=>{const o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+links.addEventListener('click',e=>{if(e.target.closest('a')){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){links.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.focus()}});
+const navObs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const k=e.target.dataset.nav;
+  $$('a',links).forEach(a=>{if(a.dataset.sec===k)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+}),{rootMargin:'-45% 0px -50% 0px'});
+$$('[data-nav]').forEach(s=>navObs.observe(s));
+
+/* ---------- Scroll Reveal & Numerical Counter Animation ---------- */
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+$$('.reveal').forEach(el=>reduced?el.classList.add('in'):rv.observe(el));
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;co.unobserve(e.target);
+  const el=e.target,to=+el.dataset.count;
+  if(reduced){el.textContent=to;return}
+  const t0=performance.now(),d=1100;
+  const f=t=>{const k=clamp((t-t0)/d,0,1);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)};
+  el.textContent=0;requestAnimationFrame(f);
+}),{threshold:.7});
+$$('[data-count]').forEach(el=>co.observe(el));
+
+/* ---------- Magnetic Hover Buttons & 3D Holographic Card Tilt ---------- */
+if(!reduced&&canHover){
+  $$('.magnetic').forEach(b=>{
+    b.addEventListener('pointermove',e=>{
+      const r=b.getBoundingClientRect();
+      b.style.setProperty('--mx',(e.clientX-(r.left+r.width/2))*.22+'px');
+      b.style.setProperty('--my',(e.clientY-(r.top+r.height/2))*.28+'px');
+    });
+    b.addEventListener('pointerleave',()=>{b.style.setProperty('--mx','0px');b.style.setProperty('--my','0px')});
+  });
+  const cred=$('#cred'),box=$('#credBox');
+  box.addEventListener('pointermove',e=>{
+    const r=cred.getBoundingClientRect();
+    const ry=((e.clientX-r.left)/r.width-.5)*12;
+    const rx=-((e.clientY-r.top)/r.height-.5)*12;
+    cred.style.setProperty('--ry',ry.toFixed(2)+'deg');
+    cred.style.setProperty('--rx',rx.toFixed(2)+'deg');
+  });
+  box.addEventListener('pointerleave',()=>{
+    cred.style.setProperty('--ry','0deg');
+    cred.style.setProperty('--rx','0deg');
+  });
+}
+
+/* ---------- Hero Interactive Particle Canvas Network ---------- */
+(()=>{
+  const cv=$('#heroCanvas'),ctx=cv.getContext('2d');
+  let w=0,h=0,pts=[],raf=0,vis=false;
+  function size(){
+    const r=cv.parentElement.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);
+    w=r.width;h=r.height;cv.width=w*d;cv.height=h*d;ctx.setTransform(d,0,0,d,0,0);
+    const n=clamp(Math.round(w*h/18000),26,72);
+    pts=Array.from({length:n},()=>({
+      x:Math.random()*w,
+      y:Math.random()*h,
+      vx:(Math.random()-.5)*.32,
+      vy:(Math.random()-.5)*.32
+    }));
+  }
+  function frame(move=true){
+    ctx.clearRect(0,0,w,h);
+    for(const p of pts){
+      if(move){
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>w)p.vx*=-1;
+        if(p.y<0||p.y>h)p.vy*=-1;
+      }
+    }
+    for(let i=0;i<pts.length;i++){
+      const a=pts[i];
+      for(let j=i+1;j<pts.length;j++){
+        const b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+        if(d<19600){
+          ctx.strokeStyle=`rgba(90,180,255,${(1-d/19600)*.28})`;
+          ctx.lineWidth=1;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+      ctx.fillStyle='rgba(80,210,245,.75)';
+      ctx.beginPath();
+      ctx.arc(a.x,a.y,1.6,0,6.283);
+      ctx.fill();
+    }
+  }
+  function loop(){frame();raf=requestAnimationFrame(loop)}
+  function start(){if(!raf&&vis&&!reduced&&!document.hidden)loop()}
+  function stop(){cancelAnimationFrame(raf);raf=0}
+  size();frame(false);
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;vis?start():stop()}).observe(cv.parentElement);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{size();frame(false)},150)});
+})();
+
+/* ---------- Trust Engine Interactive SVG Orbit ---------- */
+const ENGINE=[
+  {k:'sig',t:'Digital Signature',d:'Cryptographic proof minted with ECDSA P-256 HSM keys certifying that the credential was legitimately issued by an accredited authority.',w:'Applied at the Sign & Mint stage after the authority reviews and seals the applicant proof.'},
+  {k:'hash',t:'SHA-256 Merkle Hash',d:'Generates an immutable mathematical fingerprint of every byte in the credential document to immediately flag any alteration.',w:'Checked on-the-fly whenever a verifier inputs a hash or inspects a document.'},
+  {k:'qr',t:'QR & Certificate ID',d:'Human-readable and machine-scannable identifiers carrying signed cryptographic proof payload for instant field verification.',w:'Primary entry point for employers, border control officers, and academic verifiers.'},
+  {k:'rev',t:'Revocation Registry',d:'Dynamic sovereign registry tracking credential status changes, disciplinary actions, suspensions, and expirations in real time.',w:'Authorities trigger status changes with immediate propagation across all national verifiers.'},
+  {k:'vault',t:'Nagrik Sovereign Vault',d:'Citizen-controlled encrypted repository with zero-knowledge selective disclosure and secure delegation.',w:'Permanent home where citizens store, organize, share, and track all lifetime credentials.'},
+  {k:'audit',t:'Immutable Audit Trail',d:'Cryptographically chained log tracking every issuance, verification ping, renewal, and revocation event.',w:'Maintains total transparency, RTI compliance, and anti-fraud monitoring for all government stakeholders.'}
+];
+(()=>{
+  const stage=$('#stage'),svg=$('#stageSvg'),read=$('#readout'),steps=$('#eSteps');
+  const R=36,pos=ENGINE.map((_,i)=>{const a=(-90+i*60)*Math.PI/180;return[50+R*Math.cos(a),50+R*Math.sin(a)]});
+  svg.innerHTML=`<circle class="ring" cx="50" cy="50" r="${R}"/>`+pos.map(([x,y])=>`<line class="ln" x1="50" y1="50" x2="${x}" y2="${y}"/>`).join('')+'<g id="pkt"></g>';
+  const lines=$$('.ln',svg),pkt=$('#pkt');
+  const nodes=ENGINE.map((m,i)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='node';
+    b.style.left=pos[i][0]+'%';b.style.top=pos[i][1]+'%';
+    b.innerHTML=`<span class="dot">${svgIcon(m.k,22)}</span><span>${m.t}</span>`;
+    b.setAttribute('aria-label',m.t+': '+m.d);
+    stage.appendChild(b);
+    ['mouseenter','focus','click'].forEach(ev=>b.addEventListener(ev,()=>set(i)));
+    return b;
+  });
+  steps.innerHTML=ENGINE.map((m,i)=>`<div class="estep" data-i="${i}"><div class="estep-card"><h3>${m.t}</h3><p>${m.d}</p><p class="where">${m.w}</p></div></div>`).join('');
+  const st=$$('.estep',steps);
+  st.forEach((s,i)=>s.addEventListener('click',()=>set(i)));
+  let cur=-1;
+  function set(i){
+    if(i===cur)return;cur=i;
+    nodes.forEach((n,j)=>n.classList.toggle('on',j===i));
+    lines.forEach((l,j)=>l.classList.toggle('on',j===i));
+    st.forEach((s,j)=>s.classList.toggle('on',j===i));
+    read.innerHTML=`<h3>${ENGINE[i].t}</h3><p>${ENGINE[i].d}</p>`;
+    read.classList.remove('swap');void read.offsetWidth;read.classList.add('swap');
+    pkt.innerHTML=reduced?'':`<circle r="2" fill="#35D3F0" filter="drop-shadow(0 0 6px #35D3F0)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M50,50 L${pos[i][0]},${pos[i][1]}"/></circle>`;
+  }
+  set(0);
+  const eo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(+e.target.dataset.i)}),{rootMargin:'-42% 0px -42% 0px'});
+  st.forEach(s=>eo.observe(s));
+})();
+
+/* ---------- Credential Lifecycle Stepper ---------- */
+(()=>{
+  const S=[
+    {t:'Issued',c:'#4C8DFF',chip:'info',d:'An accredited sovereign authority scrutinizes eligibility, issues approval, and applies an ECDSA HSM digital signature with a unique certificate ID and QR code.'},
+    {t:'Active',c:'#3DDC97',chip:'ok',d:'The credential safely rests in the citizen’s Nagrik Vault, verifiable by any entity worldwide with 100% cryptographic validity.'},
+    {t:'Shared',c:'#35D3F0',chip:'info',d:'Citizen securely shares selective disclosure proofs with employers, universities, or banks via QR code, link, or digitally sealed PDF.'},
+    {t:'Renewed',c:'#4C8DFF',chip:'info',d:'Periodic re-accreditation or re-licensing occurs; new validity timestamps are cryptographically appended to the existing immutable audit record.'},
+    {t:'Revoked / Expired',c:'#F2A33A',chip:'warn',d:'Upon misconduct, license invalidation, or term expiry, the issuing authority immediately flags the status. Any verifier instantly sees the invalidation.'}
+  ];
+  const track=$('#lcTrack'),fill=$('#lcFill'),det=$('#lcDetail');
+  const btns=S.map((s,i)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='lc-node';
+    b.style.setProperty('--c',s.c);
+    b.innerHTML=`<i></i><span>${s.t}</span>`;
+    track.appendChild(b);
+    ['mouseenter','focus','click'].forEach(ev=>b.addEventListener(ev,()=>set(i)));
+    return b;
+  });
+  function set(i){
+    btns.forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('passed',j<=i)});
+    fill.style.width=(i/(S.length-1))*100+'%';
+    det.innerHTML=`<span class="chip ${S[i].chip}"><i></i>${S[i].t.toUpperCase()}</span><h3>${S[i].t} State</h3><p>${S[i].d}</p>`;
+    det.classList.remove('swap');void det.offsetWidth;det.classList.add('swap');
+  }
+  set(1);
+})();
+
+/* ---------- Live Credential Verifier Simulator ---------- */
+(()=>{
+  const form=$('#verifyForm'),idIn=$('#certId'),hIn=$('#pdfHash'),out=$('#vOut'),btn=$('#vBtn');
+  const SAMPLE={id:'BHR-EDU-2026-000123',hash:'9f2c1a7e4b63d08a5c1e97f3b20d46a8e15c7b9023fa64d18e0b5c3a7d92f641'};
+  const fillSample=()=>{idIn.value=SAMPLE.id;hIn.value=SAMPLE.hash};
+  $('#vSample').addEventListener('click',fillSample);
+  const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let busy=false;
+  function run(){
+    if(busy)return;busy=true;btn.disabled=true;
+    if(!idIn.value.trim()&&!hIn.value.trim())fillSample();
+    const names=['Querying National Node Registry','Checking Authority ECDSA P-256 Signature','Matching SHA-256 Merkle Hash Fingerprint','Validating Real-Time Revocation Registry'];
+    out.innerHTML=`<ol class="vsteps" aria-live="polite">${names.map(n=>`<li>${n}</li>`).join('')}</ol>`;
+    const li=$$('li',out),gap=reduced?60:480;let i=0;
+    const next=()=>{
+      if(i>0){li[i-1].className='ok'}
+      if(i===li.length){setTimeout(done,reduced?0:260);return}
+      li[i].className='run';i++;setTimeout(next,gap);
+    };
+    next();
+  }
+  function done(){
+    const id=esc(idIn.value.trim()||SAMPLE.id);
+    out.innerHTML=`<div class="vresult" role="status">
+      <svg class="vcheck" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M14 27l8 8 16-17"/></svg>
+      <div>
+        <h3>SOVEREIGN CREDENTIAL VERIFIED</h3>
+        <dl>
+          <div><dt>Certificate ID</dt><dd class="plain">${id}</dd></div>
+          <div><dt>Status</dt><dd>ACTIVE</dd></div>
+          <div><dt>Issuing Authority</dt><dd class="plain">IIT Delhi Academic Council</dd></div>
+          <div><dt>Digital Signature</dt><dd>ECDSA P-256 VALID</dd></div>
+          <div><dt>SHA-256 Merkle Proof</dt><dd>EXACT MATCH</dd></div>
+          <div><dt>Integrity Audit</dt><dd>100% UNTAMPERED</dd></div>
+        </dl>
+      </div>
+      <p class="vnote">Cryptographic verification simulation. Document originates from an accredited sovereign authority with zero tampering detected.</p>
+    </div>`;
+    busy=false;btn.disabled=false;
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();run()});
+  $('#scanBtn').addEventListener('click',()=>{fillSample();run()});
+})();
+
+/* ---------- MARG AI Assistant ---------- */
+(()=>{
+  const KB=[
+    {q:'What documents do I need?',k:/document|proof|upload|eligib|need/i,a:'Required documents depend on the service sector. For Education: previous marksheets & student ID. For Land & Revenue: deed copy and survey number. For Healthcare: registration council certificate. MARG automatically assists you during the upload phase!'},
+    {q:'How do I verify a certificate?',k:/verif|check|valid|genuine|how to verif/i,a:'You can verify any BHAROSA certificate instantly using 3 methods: (1) Scan the QR code with any smartphone camera, (2) Enter the unique Certificate ID in our verifier above, or (3) Upload the PDF file to compute and compare its SHA-256 hash.'},
+    {q:'Where is my credential stored?',k:/where|stor|vault|keep|safe/i,a:'All issued credentials automatically deposit into your personal Nagrik Sovereign Vault. You retain full self-sovereign control to share, delegate, download, or revoke access at any time.'},
+    {q:'How does BHAROSA work?',k:/work|bharosa|what is|explain|architecture/i,a:'BHAROSA follows a 4-pillar sovereign trust cycle: Issue → Store → Share → Verify. Accredited authorities cryptographically sign credentials, which enter the citizen’s Nagrik Vault. Anyone can verify them in sub-500ms with zero forged papers.'},
+    {q:'What is Tatkal emergency mode?',k:/tatkal|urgent|fast|speed/i,a:'Tatkal mode is a prioritized 4-hour emergency turnaround mechanism for urgent hospital admissions, international visa deadlines, and judicial bails, secured by accelerated HSM queues.'},
+    {q:'How does revocation work?',k:/revok|cancel|suspend|invalid/i,a:'When an authority suspends or revokes a license, the revocation registry is updated in real time. Any subsequent verifier query immediately displays the revoked status with the official reason.'}
+  ];
+  const QUICK=[
+    'What documents do I need?',
+    'How do I verify a certificate?',
+    'Where is my credential stored?',
+    'How does BHAROSA work?',
+    'What is Tatkal emergency mode?'
+  ];
+  const answer=t=>{
+    const m=KB.find(x=>x.k.test(t));
+    return m?m.a:'I am trained on the BHAROSA Sovereign Documentation. You can ask about document verification, eligibility proofs, Tatkal emergency issuance, or Nagrik Vault storage!';
+  };
+  const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function make(root,withClose){
+    root.innerHTML=`<div class="chat">
+      <div class="chat-head">
+        <span class="avatar" aria-hidden="true">M</span>
+        <div><b>MARG</b><small>Sovereign AI Assistant · 24/7</small></div>
+        ${withClose?'<button class="chat-x" type="button" aria-label="Close MARG"><svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>':''}
+      </div>
+      <div class="chat-log" role="log" aria-live="polite"></div>
+      <div class="quick">${QUICK.map(q=>`<button type="button">${q}</button>`).join('')}</div>
+      <form class="chat-form">
+        <input aria-label="Ask MARG" placeholder="Ask about eligibility, documents or verification..." autocomplete="off">
+        <button type="submit">Ask</button>
+      </form>
+      <p class="chat-note">Natural language guidance for Bharat citizens. Empowered with sovereign regulatory protocols.</p>
+    </div>`;
+    const log=$('.chat-log',root),input=$('input',root);
+    const add=(cls,html)=>{
+      const m=document.createElement('div');
+      m.className='msg '+cls;
+      m.innerHTML=html;
+      log.appendChild(m);
+      log.scrollTop=log.scrollHeight;
+      return m;
+    };
+    add('bot','Namaste! I am <b>MARG</b>, your sovereign trust guide. How can I help you navigate BHAROSA certificates, required proofs, or instant verification today?');
+    function ask(t){
+      t=t.trim();if(!t)return;
+      add('me',esc(t));
+      const b=add('bot','<span class="dots"><i></i><i></i><i></i></span>');
+      setTimeout(()=>{b.innerHTML=answer(t);log.scrollTop=log.scrollHeight},reduced?0:600);
+    }
+    $$('.quick button',root).forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));
+    $('form',root).addEventListener('submit',e=>{e.preventDefault();ask(input.value);input.value=''});
+    return input;
+  }
+  make($('#margInline'),false);
+  const panel=$('#fPanel'),fab=$('#fab');const pin=make(panel,true);
+  const setOpen=o=>{panel.classList.toggle('open',o);fab.setAttribute('aria-expanded',o);if(o)pin.focus({preventScroll:true})};
+  fab.addEventListener('click',()=>setOpen(!panel.classList.contains('open')));
+  $('.chat-x',panel).addEventListener('click',()=>{setOpen(false);fab.focus()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open')){setOpen(false);fab.focus()}});
+})();
+
+/* ---------- Nagrik Vault Demo Data ---------- */
+(()=>{
+  const C=[
+    {ic:'edu',t:'B.Tech Degree in Computer Science',iss:'IIT Delhi Academic Council',st:'Active',sh:true,date:'14 Jun 2025',ver:'ECDSA Valid · Merkle Matched',id:'BHR-EDU-2025-004871'},
+    {ic:'health',t:'Sovereign Medical Practitioner License',iss:'National Medical Commission',st:'Active',sh:false,date:'02 Nov 2025',ver:'Valid · Good Standing',id:'BHR-HLT-2025-001392'},
+    {ic:'pro',t:'Bar Council Advocacy License',iss:'Bar Council of India',st:'Expired',sh:false,date:'08 Jan 2023',ver:'Signature valid · Renewal due',id:'BHR-PRO-2023-000508'},
+    {ic:'gov',t:'Nil-Encumbrance Property Deed',iss:'Sub-Registrar IV, Revenue Dept',st:'Active',sh:true,date:'21 Mar 2026',ver:'Verified · Merkle Sealed',id:'BHR-GOV-2026-002217'}
+  ];
+  const grid=$('#vGrid'),dlg=$('#qrDialog');let f='all';
+  function render(){
+    const list=C.filter(c=>f==='all'||(f==='active'&&c.st==='Active')||(f==='expired'&&c.st==='Expired')||(f==='shared'&&c.sh));
+    grid.innerHTML=list.map((c,i)=>`<article class="vc" style="animation-delay:${i*70}ms">
+      <div class="vc-top">
+        <span class="vc-ic">${svgIcon(c.ic,26)}</span>
+        <div>
+          <h3>${c.t}</h3>
+          <span style="font-size:.78rem;color:var(--muted);font-family:var(--mono)">${c.id}</span>
+        </div>
+        <span class="chips">
+          <span class="chip ${c.st==='Active'?'ok':'warn'}"><i></i>${c.st.toUpperCase()}</span>
+          ${c.sh?'<span class="chip info"><i></i>SHARED</span>':''}
+        </span>
+      </div>
+      <dl>
+        <div><dt>Issuing Authority</dt><dd>${c.iss}</dd></div>
+        <div><dt>Issue Date</dt><dd>${c.date}</dd></div>
+        <div><dt>Integrity Check</dt><dd style="color:var(--green)">${c.ver}</dd></div>
+      </dl>
+      <button class="qrbtn" type="button" data-id="${c.id}" data-t="${c.t}">${svgIcon('qr',16)}Display Sovereign QR</button>
+    </article>`).join('');
+  }
+  $('#vFilters').addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;f=b.dataset.f;
+    $$('#vFilters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render();
+  });
+  grid.addEventListener('click',e=>{
+    const b=e.target.closest('.qrbtn');if(!b)return;
+    $('#qrTitle').textContent=b.dataset.t;
+    $('#qrId').textContent=b.dataset.id;
+    $('#qrBig').innerHTML=qr(b.dataset.id);
+    dlg.showModal();
+  });
+  $('#qrClose').addEventListener('click',()=>dlg.close());
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+  render();
+})();
+
+/* ---------- Horizontal Scroll Impact Chain ---------- */
+const chain=$('#chain'),track=$('#chainTrack'),meter=$('#chainMeter');
+const CH=[
+  ['TRUST','Cryptographic certainty replacing easily forged paper photocopies.'],
+  ['VELOCITY','Instant sub-second verification eliminating weeks of bureaucracy.'],
+  ['SOVEREIGNTY','Citizen-controlled vault with zero unauthorized institutional snooping.'],
+  ['TRANSPARENCY','Immutable audit logs offering total clarity for RTI and legal audits.'],
+  ['NATIONAL SCALE','Connecting 1.4 Billion citizens across 28 states and all union territories.']
+];
+track.innerHTML=CH.map((c,i)=>`<article class="cpanel"><span class="idx">PHASE 0${i+1} / 0${CH.length}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div></article>${i<CH.length-1?'<div class="carrow" aria-hidden="true"></div>':''}`).join('');
+meter.innerHTML=CH.map(()=>'<i></i>').join('');
+const panels=$$('.cpanel',track),bars=$$('i',meter);
+let dist=0;
+function layoutChain(){
+  if(reduced){chain.classList.add('static');return}
+  dist=Math.max(0,track.scrollWidth-innerWidth);
+  chain.style.height=(innerHeight+dist*1.15)+'px';
+}
+function updateChain(){
+  if(reduced)return;
+  const r=chain.getBoundingClientRect(),span=chain.offsetHeight-innerHeight;
+  const p=clamp(-r.top/Math.max(span,1),0,1);
+  track.style.transform=`translate3d(${-p*dist}px,0,0)`;
+  const f=p*CH.length;
+  bars.forEach((b,i)=>b.style.setProperty('--p',clamp(f-i,0,1)));
+  const act=clamp(Math.floor(p*CH.length-.0001),0,CH.length-1);
+  panels.forEach((el,i)=>el.classList.toggle('on',i===act));
+}
+
+/* ---------- Team Section & Rotating Calibration Dials ---------- */
+const TEAM=[
+  {n:'Priyanshu Kumar',r:'Core Architecture & Cryptography'},
+  {n:'Mayank Chaudhary',r:'Consensus & Verification Engine'},
+  {n:'Krish Jha',r:'Full-Stack & Vault Infrastructure'},
+  {n:'Suman Singh',r:'UI/UX & Mobile Protocols'}
+];
+$('#teamGrid').innerHTML=TEAM.map((m,i)=>`<article class="tcard reveal" style="--d:${i*70}ms">
+  <div class="ava" aria-hidden="true">${m.n.split(' ').map(w=>w[0]).join('')}</div>
+  <div>
+    <h3>${m.n}</h3>
+    <small>${m.r}</small>
+  </div>
+</article>`).join('');
+$$('#teamGrid .reveal').forEach(el=>reduced?el.classList.add('in'):rv.observe(el));
+(()=>{
+  const ticks=(n,r1,r2,w,op)=>Array.from({length:n},(_,i)=>`<line x1="200" y1="${200-r1}" x2="200" y2="${200-r2}" stroke="#35D3F0" stroke-width="${w}" opacity="${op}" transform="rotate(${i*360/n} 200 200)"/>`).join('');
+  const el=$('#finalSym');
+  el.innerHTML=`<svg viewBox="0 0 400 400">
+    <g class="tick">${ticks(24,176,192,1.8,.9)}<circle cx="200" cy="200" r="168" fill="none" stroke="#4C8DFF" stroke-width="1.2" opacity=".6"/></g>
+    <g class="tick2">${ticks(60,150,158,1.2,.55)}<circle cx="200" cy="200" r="140" fill="none" stroke="#35D3F0" stroke-width="1" stroke-dasharray="3 6" opacity=".75"/></g>
+    <circle cx="200" cy="200" r="88" fill="rgba(61,220,151,.08)" stroke="#3DDC97" stroke-width="1.8" opacity=".85"/>
+    <path class="chk" d="M160 204l28 28 54-60"/>
+  </svg>`;
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){el.classList.add('in');o.disconnect()}}),{threshold:.3}).observe(el);
+})();
+
+/* ---------- Scroll Master Loop ---------- */
+const prog=$('#progress'),grid=$('#bgGrid'),gA=$('#glowA'),gB=$('#glowB'),gC=$('#glowC'),tl=$('#tl'),tlFill=$('#tlFill'),tlSteps=$$('.tl-step');
+let tick=false;
+function update(){
+  tick=false;
+  const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+  prog.style.transform=`scaleX(${max>0?clamp(y/max,0,1):0})`;
+  nav.classList.toggle('scrolled',y>24);
+  if(!reduced){
+    grid.style.transform=`translate3d(0,${-y*.07}px,0)`;
+    gA.style.transform=`translate3d(0,${y*.05}px,0)`;
+    gB.style.transform=`translate3d(0,${-y*.04}px,0)`;
+    if(gC)gC.style.transform=`translate3d(0,${y*.03}px,0)`;
+  }
+  // Timeline Fill & Active Node Glow
+  const r=tl.getBoundingClientRect(),mid=innerHeight*.5;
+  tlFill.style.height=clamp((mid-r.top)/r.height,0,1)*100+'%';
+  let act=-1;
+  tlSteps.forEach((s,i)=>{
+    const b=s.querySelector('.tl-node').getBoundingClientRect();
+    if(b.top+b.height/2<=mid+innerHeight*.06)act=i;
+  });
+  tlSteps.forEach((s,i)=>{
+    s.classList.toggle('active',i===act);
+    s.classList.toggle('done',i<act);
+  });
+  updateChain();
+}
+const queue=()=>{if(!tick){tick=true;requestAnimationFrame(update)}};
+addEventListener('scroll',queue,{passive:true});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{layoutChain();queue()},120)});
+hydrate();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{layoutChain();queue()});
+layoutChain();update();
+})();
+</script>
+</body>
+</html>

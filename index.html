@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23040711' stroke='%23e5a93c' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='%23002875'/><circle cx='50' cy='50' r='40' fill='none' stroke='%23002875' stroke-width='2'/></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BHAROSA | Bharat Hub for Records, Online Security & Authentication | Government of India</title>
+    <meta name="description" content="Sovereign Multi-Sector Digital Certification, Records & Verification Infrastructure of India. Empowering citizens, government ministries, academic institutes, and global verifiers." />
+    
+    <!-- Google Fonts: Cinzel, Outfit, Inter, JetBrains Mono, Sora, IBM Plex Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Sovereign Theme Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              void: '#03060f',
+              midnight: '#070c1a',
+              surface: '#0e172c',
+              'surface-elevated': '#13203c',
+              gold: {
+                DEFAULT: '#e5a93c',
+                light: '#fbbf24',
+                dark: '#b87b14',
+                soft: 'rgba(229, 169, 60, 0.2)'
+              },
+              kesari: {
+                DEFAULT: '#ff6e14',
+                glow: 'rgba(255, 110, 20, 0.4)'
+              },
+              chakra: {
+                navy: '#002875',
+                blue: '#00d2ff'
+              },
+              sovereign: {
+                green: '#10b981',
+                emerald: '#059669'
+              }
+            },
+            fontFamily: {
+              cinzel: ['Cinzel', 'serif'],
+              outfit: ['Outfit', 'sans-serif'],
+              inter: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace']
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#f8fafc] text-[#0f172a] font-inter min-h-screen selection:bg-[#ff6e14]/20 selection:text-[#002875]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
